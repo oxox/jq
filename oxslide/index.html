@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6" lang="zh-cn"><![endif]-->
+<!--[if IE 7]><html class="ie ie7" lang="zh-cn"><![endif]-->
+<!--[if IE 8]><html class="ie ie8" lang="zh-cn"><![endif]-->
+<!--[if IE 9]><html class="ie ie9" lang="zh-cn"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-cn"><!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<meta name="Copyright" content="Tencent" />
+<meta name="Description" content="一个实现tab切换和图片slide播放的通用jquery插件" />
+<meta name="Keywords" content="jquery,tab,slide,oxslide" />
+<title>oxox - jQuery.oxslide.js </title>
+<link rel="stylesheet" type="text/css" href="http://static.gtimg.com/icson/css/common/gb.css" media="screen" />
+<link href="http://st.icson.com/51buy_v3/css/gb.css?v=20130401201" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body{background:#000;color:#ffdd00;}
+h1{font-size:28px;margin:30px 0 60px;text-align:center;padding:20px 0 25px;}
+h3{font-size:22px;margin:20px 0 40px;text-align:center;padding:15px 0 20px;}
+.yx_wrap{padding:50px 0;}
+
+.full_slide { position:relative; z-index:100; min-width:990px; height:355px; overflow:hidden }
+.full_slide .body_slide li { width:100%; height:355px; background:no-repeat center 0 #FFF; position:absolute; left:0; top:0; overflow:hidden; display:none }
+.full_slide .body_slide a { display:block; width:985px; height:355px; margin:0 auto; overflow:hidden }
+.wrap_1280 .full_slide .body_slide a { width:1225px }
+.full_slide .ctrl_slide { position:absolute; bottom:10px; right:50%; margin-right:-340px; width:200px; height:22px }
+.full_slide .ctrl_slide a { display:inline-block; width:16px; height:16px; line-height:500px; overflow:hidden; background:url(img/script_png_24.png) -22px top no-repeat; _background-image:none; _background-color:#afb5be; margin-right:4px }
+.full_slide .ctrl_slide a:hover, .full_slide .ctrl_slide a.curr { background-position:left top; _background-color:#ffba00 }
+
+.wrap_1280 .ctrl_slide{margin-right:-550px}
+
+
+.yx_content{padding-bottom:30px; background-color:#ECECEC;overflow:hidden;}
+.yx_content .yx_wrap{position:relative; clear:both;}
+
+.yhj_new_goods{border:2px solid #ddd;overflow:hidden;position:relative;height:272px;width:205px;margin-bottom:10px;background-color:#fff;margin-left:auto;margin-right:auto; }
+.yhj_new_goods .tab_hd{float:right;margin:17px 2px 0 0}
+.yhj_new_goods .tab_hd li{float:left;width:15px;height:14px;margin-right:5px}
+.yhj_new_goods .tab_hd li a{overflow:hidden;display:block;float:left;width:17px;height:17px;line-height:17px;#line-height:18px;text-align:center}
+.yhj_new_goods .tab_hd li a:link,
+.yhj_new_goods .tab_hd li a:visited,
+.yhj_new_goods .tab_hd li a:hover,
+.yhj_new_goods .tab_hd li a:active{text-decoration:none;color:#666}
+.yhj_new_goods .tab_hd .current a:link,
+.yhj_new_goods .tab_hd .current a:visited,
+.yhj_new_goods .tab_hd .current a:hover,
+.yhj_new_goods .tab_hd .current a:active{text-decoration:none;color:#666; background:url(img/script_png_24.png)   no-repeat; _background-image:none; _background-color:#afb5be;color:#fff;}
+.yhj_new_goods .tab_bd{position:absolute;top:46px;left:0;width:708px;height:216px}
+.yhj_new_goods .tab_bd ul{float:left}
+.yhj_new_goods .tab_bd li{_width:198px;height:236px;padding:20px 14px 10px;float:left;display:inline;}
+.yhj_new_goods_hd{height:45px;line-height:45px;background-color:#F7F7F7;}
+.yhj_new_goods_hd h3{float:left;font-size:16px;font-weight:400;text-indent:10px;}
+.yhj_new_goods_bd{padding:10px;height:247px;}
+
+</style>
+</head>
+<body class="wrap_1280">
+
+
+<!-- S 通栏 -->
+
+<div class="yx_wrap sec_1">
+	<h1>oxslide - 一个实现tab切换和图片slide播放的通用jquery插件</h1>
+	<h3>示例1 - 左右切换效果</h3>
+
+	<!--oxslide demo1-->
+	<div class="yhj_new_goods"  id="demo1">
+		<ul class="tab_hd">
+			<li class="current"><a href="javascript:void('0');">1</a></li>
+			<li><a href="javascript:void('0');">2</a></li>
+			<li><a href="javascript:void('0');">3</a></li>
+		</ul>
+		<div class="tab_bd">
+			<ul class="clearfix">
+				<li>
+					<p><a href="http://new.51buy.com/?banner=2" target="_blank" ytag="20080"><img src="http://img1.icson.com/ICSONAD/201304/1_big20130427100531342970.jpg" alt="赠豪华大礼包"/></a></p>
+				</li>
+				<li>
+					<p><a href="http://new.51buy.com/" target="_blank" ytag="20081"><img src="http://img1.icson.com/ICSONAD/201304/1_big20130428094645864136.jpg" alt="送原装包 鼠标"/></a></p>
+				</li>
+				<li>
+					<p><a href="http://new.51buy.com/?banner=3" target="_blank" ytag="20082"><img src="http://img1.icson.com/ICSONAD/201304/1_big20130428094733936249.jpg" alt="送配件礼品"/></a></p>
+				</li>
+			 </ul>
+		</div>
+		<div class="yhj_new_goods_hd">
+			<h3>新品合约机</h3>
+		</div>			 				
+	</div>
+	<!--/oxslide demo1-->
+</div>
+
+<div class="yx_wrap sec_2">
+	<h3>示例2 - fadeIn效果</h3>
+	<!--oxslide demo2-->
+	<div id="demo2" class="full_slide">
+		<ul class="body_slide wide_body_slide" style="">
+			<li ytag="40280" style="background-image: url(http://img1.icson.com/ICSONAD/201304/1_big20130425120921449602.jpg); display: block;">
+				<a target="_blank" href="http://event.51buy.com/event/78514795.html"></a>
+			</li>
+			<li ytag="40289" style="BACKGROUND-IMAGE: url(http://img2.icson.com/ICSONAD/201304/1_big20130425120737672211.jpg)">
+				<a target="_blank" href="http://event.51buy.com/event/7759fb03.html"></a>
+			</li>
+			<li ytag="40298" style="BACKGROUND-IMAGE: url(http://img1.icson.com/ICSONAD/201304/1_big20130425120641866422.jpg)">
+				<a target="_blank" href="http://u.51buy.com/c218c2"></a>
+			</li>
+			<li ytag="40307" style="BACKGROUND-IMAGE: url(http://img2.icson.com/ICSONAD/201304/1_big20130425120551716526.jpg)">
+				<a target="_blank" href="http://event.51buy.com/event/7853260c.html"></a>
+			</li>
+			<li ytag="40316" style="BACKGROUND-IMAGE: url(http://img2.icson.com/ICSONAD/201304/1_big20130425122103182934.jpg)">
+				<a target="_blank" href="http://event.51buy.com/event/783562ce.html"></a>
+			</li>
+		</ul>
+		<ul class="body_slide narrow_body_slide" style="display: none;">
+			<li ytag="40290" style="BACKGROUND-IMAGE: url(http://img2.icson.com/ICSONAD/201304/1_big20130425120923795808.jpg)">
+				<a target="_blank" href="http://event.51buy.com/event/78514795.html"></a>
+			</li>
+			<li ytag="40299" style="BACKGROUND-IMAGE: url(http://img2.icson.com/ICSONAD/201304/1_big20130425120739987516.jpg)">
+				<a target="_blank" href="http://event.51buy.com/event/7759fb03.html"></a>
+			</li>
+			<li ytag="40308" style="BACKGROUND-IMAGE: url(http://img2.icson.com/ICSONAD/201304/1_big20130425120642652662.jpg)">
+				<a target="_blank" href="http://u.51buy.com/c218c2"></a>
+			</li>
+			<li ytag="40317" style="BACKGROUND-IMAGE: url(http://img2.icson.com/ICSONAD/201304/1_big20130425120552754617.jpg)">
+				<a target="_blank" href="http://event.51buy.com/event/7853260c.html"></a>
+			</li>
+			<li ytag="40326" style="BACKGROUND-IMAGE: url(http://img1.icson.com/ICSONAD/201304/1_big20130425122105193392.jpg)">
+				<a target="_blank" href="http://event.51buy.com/event/783562ce.html"></a>
+			</li>
+		</ul>
+		<div class="ctrl_slide">
+			<a class="curr" href="javascript:;">1</a>
+			<a href="javascript:;">2</a>
+			<a href="javascript:;">3</a>
+			<a href="javascript:;">4</a>
+			<a href="javascript:;">5</a>
+		</div>
+	</div>
+	<!-- oxslide demo2 -->
+</div>
+
+
+
+
+
+
+
+
+<script src="http://oxox.io/assets/js/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery.oxslide.js"></script>
+<script>
+
+$(document).ready(function(){
+
+	$('#demo2').oxslide({
+		methodName:'mouseenter',
+		autoPlay:true,
+		interval:3000,
+		hoverStopOnPanel:true,
+		onSwitch:function(){
+			this.$prevPanel && this.$prevPanel.stop().hide();
+			this.$curPanel.stop().fadeIn();
+		},
+		clTabOn:'curr',
+		cssTabNav:'.ctrl_slide a',				//TAB菜单选择器
+		cssTabPanel:'.wide_body_slide li'			//TAB面板选择器。如果不指定，则使用cssTabNav的href属性或者data-stab属性
+	});
+
+	$("#demo1").oxslide({
+		methodName:'mouseenter',
+		autoPlay:true,
+		interval:3000,
+		hoverStopOnPanel:true,
+		onSwitch:function(){
+			this.$panelWrap = this.$panelWrap || this.$d.find('.tab_bd');
+			//获取li的宽度
+			this.panelWidth = this.panelWidth || this.$panels.outerWidth();
+			//动画
+			this.$panelWrap.stop(true,true).animate({
+				left:-(this.curIdx*this.panelWidth)
+			},300);
+		},
+		clTabOn:'current',
+		cssTabNav:'.tab_hd li',				//TAB菜单选择器
+		cssTabPanel:'.tab_bd li'			//TAB面板选择器。如果不指定，则使用cssTabNav的href属性或者data-stab属性
+	});
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>
