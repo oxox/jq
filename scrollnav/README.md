@@ -10,7 +10,7 @@ scrollnav 是一个用于视差滚动 或 滑动导航的 jq插件
 
 ## Examples
 
-看[DEMO](http://oxox.io/jq/scrollnav/scrollnav.html)更直接.
+看[DEMO](http://oxox.io/jq/scrollnav/)更直接.
 
 ### Basic example
 
