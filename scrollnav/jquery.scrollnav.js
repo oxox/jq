@@ -7,7 +7,7 @@
         }
     });
     var $win = $(window),
-        isIE6 = ($.browser.msie && $.browser.version == "6.0"),
+        isIE6 = ( navigator.userAgent.match(/msie/i) && navigator.userAgent.match(/6/) ),
         ScrollNav = (function () {
 
         function ScrollNav(element, options) {
