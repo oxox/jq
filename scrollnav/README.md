@@ -3,7 +3,7 @@
 
 scrollnav 是一个用于视差滚动 或 滑动导航的 jq插件
 
-## 特点
+## Key features
 
 * 直接引入插件，在html结构里加入相关的自定义属性(data-snav)即可自运行。
 * 可设置滚动效果、速度、灵敏度等。
@@ -12,7 +12,7 @@ scrollnav 是一个用于视差滚动 或 滑动导航的 jq插件
 
 看[DEMO](http://oxox.io)更直接.
 
-### 基础
+### Basic example
 
 ```html
 <!-- 加上自定义属性 data-snav即可运行，其值是滚动屏数的类名 -->
@@ -26,3 +26,6 @@ scrollnav 是一个用于视差滚动 或 滑动导航的 jq插件
 
 ## Changelog
 * v0.1 项目创建
+
+## Other
+[My Blog](http://www.ghugo.com)
