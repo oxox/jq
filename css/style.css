@@ -1,0 +1,117 @@
+@font-face {
+  font-family: Iceland;
+  src: url(http://oxox.io/assets/font/Iceland/Iceland-Regular.ttf);
+}
+* {
+  font-family: 'Iceland', 'sans-serif', '\5FAE\8F6F\96C5\9ED1';
+}
+body {
+  position: relative;
+  font-size: 1.1em;
+}
+a {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.mod_dummy {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor: default !important;
+}
+.container,
+.container-fluid {
+  position: relative;
+}
+.navbar .brand {
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+.page_main {
+  padding-top: 65px;
+}
+.mod_circle {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+.mod_circlebg {
+  border: 2px solid #ffffff;
+  border-image: initial;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.mod_circlebd {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: 50%;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+}
+.row_A {
+  margin-top: 65px;
+}
+.slogan-unit {
+  text-align: center;
+  position: relative;
+  margin: 130px auto;
+}
+.slogan-unit h1 {
+  font-size: 90px;
+  line-height: 1.2em;
+}
+.slogan-unit-bd {
+  margin: 25px 0;
+}
+.slogan_bg1,
+.slogan_bg2 {
+  opacity: 0.5;
+  padding: 5px 0 0 0;
+}
+.slogan_bg1 {
+  border-top: 1px solid #cccccc;
+  border-bottom: 2px solid #cccccc;
+}
+.slogan_bg2 {
+  border-top: 2px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+.site_bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.list_showcase li {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  margin: 5px 10px;
+  padding: 10px;
+  border: 2px solid #eee;
+  background-color: #f3f3f3;
+}
+.list_showcase li:hover {
+  -webkit-box-shadow: 5px 5px 10px 2px #999999;
+  -moz-box-shadow: 5px 5px 10px 2px #999999;
+  box-shadow: 5px 5px 10px 2px #999999;
+}
+.list_showcase a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,70 @@
+@import "vars.less";
+
+//Webfonts
+@font-face {
+	font-family: Iceland;
+	src:url(http://oxox.io/assets/font/Iceland/Iceland-Regular.ttf);
+}
+
+* {
+	font-family: 'Iceland', 'sans-serif','\5FAE\8F6F\96C5\9ED1'
+}
+body {
+	position: relative;
+	font-size:1.1em;
+}
+a{
+	.transition(all .2s linear);
+}
+.mod_dummy{
+	.opacity(50);
+	cursor: default !important;
+}
+//Bootstrap overrides - S
+//------------------------
+.container,.container-fluid{
+	position:relative;
+}
+.navbar .brand{
+	padding-top:5px;
+	padding-bottom:0;
+}
+//Bootstrap overrides - E
+
+
+.page_main{
+	padding-top: 65px;
+}
+
+.mod_circle{
+	position:relative;
+	height: 40px;
+	width:40px;
+	text-align: center;
+	line-height: 40px;
+}
+.mod_circlebg{
+	border: 2px solid rgb(255, 255, 255);
+	border-image: initial;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: transparent;
+	border-radius: 50%;
+}
+.mod_circlebd{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	border-radius: 50%;
+}
+
+footer{
+	position:fixed;
+	bottom:0;
+	right:20px;
+}
