@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6" lang="zh-cn"><![endif]-->
+<!--[if IE 7]><html class="ie ie7" lang="zh-cn"><![endif]-->
+<!--[if IE 8]><html class="ie ie8" lang="zh-cn"><![endif]-->
+<!--[if IE 9]><html class="ie ie9" lang="zh-cn"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-cn"><!--<![endif]-->
+<head>
+<title>oxox - jQuery.oxrolling.js </title>
+<meta charset="utf-8" />
+<meta name="Copyright" content="Tencent" />
+<meta name="Description" content="一个实现数字滚动、拉霸抽奖等效果的jquery插件" />
+<meta name="Keywords" content="jquery,oxrolling" />
+<meta name="author" content="oxox.io"/>
+
+<link href="http://oxox.io/assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="http://oxox.io/assets/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+
+<link href="../css/global.css" rel="stylesheet"/>
+
+<link href="css/style.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+	<div class="site_bg"></div>
+	<div class="navbar navbar-inverse navbar-indiebg navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="navbar-innerbg"></div>
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="http://oxox.io/">
+					<div class="mod_circle circle_box1">
+						<div class="mod_circlebg"></div>
+						<div class="mod_circlebd">
+							OX
+						</div>
+					</div>
+				</a>
+				<div class="nav-collapse">
+					<ul id="J_topnav" class="nav">
+						<li><a href="//oxox.io/jq/">JQ</a></li>
+						<li class="active"><a href="index.html">oxrolling</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid row_A">
+			<div class="span12">
+				<div class="slogan-unit">
+					<!--slogan_unit_about-->
+					<div class="slogan-unit-bd">
+						<h1>"ox.rolling"</h1>
+						<p>
+							实现数字滚动、拉霸抽奖等效果
+						</p>
+					</div>
+					<div class="slogan_bg2"></div>
+					<!--/slogan_unit_about-->
+				</div>
+			</div><!--/span-->
+		</div><!--/row-->
+
+		<div class="row-fluid">
+			<div class="mod_demo">
+				<h3>示例1-数字滚动</h3>
+				<div class="demo_bd">
+					<div id="demo1" class="rolling_demo1 clearfix">
+						<div class="rolling_n" data-n="2"><span class="rolling_item">0</span></div>
+						<div class="rolling_n" data-n="0"><span class="rolling_item">0</span></div>
+						<div class="rolling_n" data-n="0"><span class="rolling_item">0</span></div>
+						<div class="rolling_n" data-n="3"><span class="rolling_item">0</span></div>
+						<div class="rolling_split">.</div>
+						<div class="rolling_n" data-n="0"><span class="rolling_item">0</span></div>
+						<div class="rolling_n" data-n="5"><span class="rolling_item">0</span></div>
+						<div class="rolling_split">.</div>
+						<div class="rolling_n" data-n="0"><span class="rolling_item">0</span></div>
+						<div class="rolling_n" data-n="5"><span class="rolling_item">0</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="mod_demo">
+				<h3>示例2-拉霸抽奖滚动</h3>
+				<div class="demo_bd">
+					<div id="demo2" class="rolling_demo2 clearfix">
+						<div id="oxrolling2" class="rolling_n" data-n="2" data-type="1">
+							<div class="rolling_bd">
+								<div class="rolling_item">奖品1</div>
+								<div class="rolling_item">奖品2</div>
+								<div class="rolling_item">奖品3</div>
+								<div class="rolling_item">奖品4</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="demo_ft">
+					<button id="btn_gogo" class="btn btn-primary">开始抽奖</button>
+				</div>
+			</div>
+		</div><!--/row-->
+
+		<footer>
+			<p>&copy; oxox.io 2012~<script type="text/javascript">document.write((new Date()).getFullYear());</script></p>
+		</footer>
+
+	</div><!--/.fluid-container-->
+
+
+
+<script src="http://oxox.io/assets/js/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery.oxrolling.js"></script>
+<script>
+
+$(document).ready(function(){
+	//demo1
+	$('#demo1 .rolling_n').oxrolling();
+	//demo2
+	var $demo2 = $('#oxrolling2').oxrolling({
+		autoPlay:false
+	});
+	$('#btn_gogo').on('click',function(){
+		$demo2.oxrolling('autoPlay');
+	});
+});
+
+
+
+</script>
+
+
+</body>
+</html>
