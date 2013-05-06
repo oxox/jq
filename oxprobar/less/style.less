@@ -1,0 +1,86 @@
+@import "../../less/mixins.less";
+//Variables
+//----------------------------------------
+@sloganBGColor:                #ccc;
+@textEMColor:                  #02c4fb;
+
+.row_A{
+	margin-top: 65px;
+}
+.slogan-unit{
+	text-align:center;
+	position:relative;
+	margin:100px auto 50px;
+	h1{
+		font-size:90px;
+		line-height: 1.2em;
+	}
+}
+.slogan-unit-bd{
+	margin:25px 0;
+}
+.slogan_bg1,.slogan_bg2{
+	opacity: 0.5;
+	padding:5px 0 0 0;
+}
+.slogan_bg1{
+	border-top:1px solid @sloganBGColor;
+	border-bottom:2px solid @sloganBGColor;
+}
+.slogan_bg2{
+	border-top:2px solid @sloganBGColor;
+	border-bottom:1px solid @sloganBGColor;
+}
+
+.site_bg{
+	position: fixed;
+	left:0;
+	top:0;
+	width: 100%; 
+	height:100%;
+}
+
+.list_showcase{
+	li{
+		.transition(all .2s linear);
+		margin: 5px 10px;
+		padding:10px;
+		border:2px solid #eee;
+		background-color: #f3f3f3;
+		&:hover{
+			.box-shadow(5px 5px 10px 2px #999);
+		}
+	}
+	a{
+		&:hover{
+			text-decoration: none;
+		}
+	}
+}
+
+
+/* S - 进度条组件 */
+.mod_probar{
+	.size(16px,300px);
+	margin:0 auto;
+	overflow: hidden;
+	position: relative;
+}
+.mod_probar_bd1,.mod_probar_bd2{
+	position:absolute;
+	top:0;
+	left:0;
+	height: 100%;
+	overflow: hidden;
+	.border-radius(10px);
+}
+.mod_probar_bd1{
+	width:100%;
+	background-color: #000;
+}
+.mod_probar_bd2{
+	width:0;
+	background-color: #ff8400;
+}
+
+/* E - 进度条组件 */
