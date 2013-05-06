@@ -1,0 +1,99 @@
+@import "../../less/mixins.less";
+.list_showcase{
+	li{
+		.transition(all .2s linear);
+		margin: 5px 10px;
+		padding:10px;
+		border:2px solid #eee;
+		background-color: #f3f3f3;
+		&:hover{
+			.box-shadow(5px 5px 10px 2px #999);
+		}
+	}
+	a{
+		&:hover{
+			text-decoration: none;
+		}
+	}
+}
+
+.lucky_demo1{
+	.size(552px,497px);
+	margin:0 auto;
+	overflow: hidden;
+	position: relative;
+	background: #333;
+}
+	.lucky_bg1,.lucky_bg2{
+		position: absolute;
+		top:0;
+		left:0;
+		.square(100%);
+	}
+	.lucky_bg1{
+		background: url(../img/bg1.png) no-repeat;
+		.opacity(50);
+	}
+	.lucky_bg2{
+		background: url(../img/bg2.png) no-repeat;
+		display: none;
+	}
+	.lucky_bd{
+		.size(482px,428px);
+		position: absolute;
+		top:35px;
+		left:35px;
+	}
+	.list_luckyitem{
+		margin:0;
+		li,.luckyitem,.luckybtn,.luckyitem_cover{
+			.size(154px,135px);
+			overflow: hidden;
+			.border-radius(10px);
+		}
+		li{
+			float:left;
+			display: inline;
+			margin-right: 7px;
+			margin-bottom: 6px;
+		}
+		.luckyitem{
+			background: #fff;
+			position: relative;
+		}
+		.luckyitem_cover{
+			position:absolute;
+			top:0;
+			left:0;
+			background: #ffb400;
+			.opacity(50);
+			display: none;
+		}
+		.luckyitem_on .luckyitem_cover{
+			display: block;
+		}
+		.luckyitem_bd{
+			text-align: center;
+			position: relative;
+			line-height: 154px;
+		}
+		.luckybtn{
+			position: relative;
+			background: #353535;
+		}
+		.luckybtn_bd{
+			display: block;
+			.size(134px,113px);
+			background: #ffc300;
+			margin-top:8px;
+			margin-left:11px;
+			line-height: 134px;
+			font-size:26px;
+			text-align: center;
+			&:hover{
+				text-decoration: none;
+			}
+			.border-radius(10px);
+		}
+	}
+
