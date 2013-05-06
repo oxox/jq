@@ -14,6 +14,7 @@
 		this.$d = $d;
 		this.opts = opts;
 		this.timer = null;
+		this.interval = this.opts.interval;
 		this.curIdx = 0;
 		this.prevIdx = -1;
 		this.$prevItem = null;
@@ -37,27 +38,48 @@
 
 			this.$prevItem = this.$curItem;
 
-			this.$curItem = this.$items.eq(idx).addClass(this.opts.clItemActive);
+			var cssSelector = '[data-luckysn="%"]'.replace('%',idx+'');
+
+			this.$curItem = this.$items.filter(cssSelector).addClass(this.opts.clItemActive);
 
 		},
 		init:function () {
 
 			this.$items = this.$d.find(this.opts.cssItem);
+
+			//设置奖品的序号
+			this.$items.each(function(i,o){
+				if (!o.getAttribute('data-luckysn')) {
+					o.setAttribute('data-luckysn',i);
+				};
+			});
+
 			this.total = this.$items.length;
 		},
 		stop:function(idx){
 			clearInterval(this.timer);
 			if (typeof(idx)!=='undefined') {
 				this.showItem(idx);
+				this.reset();
 			};
+		},
+		reset:function(){
+			this.interval = this.opts.interval;
 		},
 		go:function(){
 			this.stop();
-			var me = this,
-				interval = this.opts.interval+10;
-			this.timer = setInterval(function(){
+			var me = this;
+
+			this.interval = this.interval<this.opts.intervalMin?this.opts.intervalMin:this.interval;
+			this.interval = this.interval>this.opts.intervalMax?this.opts.intervalMax:this.interval;
+
+			this.timer = setTimeout(function(){
 				me.showItem(me.curIdx+1);
-			},interval);
+				me.interval+=me.opts.intervalStep;
+
+				me.go();
+
+			},this.interval);
 		},
 		update:function(opts,reInit){
 			this.opts = opts;
@@ -100,7 +122,10 @@
 	$.fn.oxlucky.defaults = {
 		cssItem:'.luckyitem',
 		clItemActive:'luckyitem_on',
-		interval:200				// 滚动的时间间隔
+		intervalMin:40,					// 最小的时间间隔
+		intervalMax:1000,				// 最大的时间间隔
+		interval:50,					// 滚动的时间间隔
+		intervalStep:20				// 每次滚动后增加的时间步长。通过step控制越转越快或越转越慢
 	};
 
 })(jQuery);
