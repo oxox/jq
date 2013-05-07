@@ -62,8 +62,9 @@ $(function(){
  </div>
 ```
 
-	easing动画效果：[http://easings.net/zh-cn](http://easings.net/zh-cn)
-	CSS3 贝塞尔曲线：[http://www.roblaplaca.com/examples/bezierBuilder/](http://www.roblaplaca.com/examples/bezierBuilder/)
+easing动画效果：[http://easings.net/zh-cn](http://easings.net/zh-cn)
+
+CSS3 贝塞尔曲线：[http://www.roblaplaca.com/examples/bezierBuilder/](http://www.roblaplaca.com/examples/bezierBuilder/)
 
 ### 设置触发条件
 
