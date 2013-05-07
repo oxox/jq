@@ -23,7 +23,11 @@ jquery anie 是一个jq动画插件，支持css3动画及JQ动画。自动判断
 
 使用`data-ani`属性,通过`|`符合分隔动画
 ```html
-<div data-delay="1000" data-ani="width:32%;opacity:0|height:100px;opacity:10" data-duration="1000" data-easing="0.39, 0.575, 0.565, 1" class="box">
+<div data-delay="1000" 
+	 data-ani="width:32%;opacity:0|height:100px;opacity:10" 
+	 data-duration="1000" 
+	 data-easing="0.39, 0.575, 0.565, 1" 
+	 class="box">
 	<p>先变宽后变高</p>
  </div>
 ```
@@ -48,7 +52,11 @@ $(function(){
 * data-delay 延时 即等待时间。可用于多个动画顺序执行。
 * data-easing 缓冲效果  这里使用的是贝塞尔值
 ```html
-<div data-delay="1000" data-ani="width:32%;opacity:0|height:100px;opacity:10" data-duration="1000" data-easing="0.39, 0.575, 0.565, 1" class="box">
+<div data-delay="1000" 
+	 data-ani="width:32%;opacity:0|height:100px;opacity:10" 
+	 data-duration="1000" 
+	 data-easing="0.39, 0.575, 0.565, 1" 
+	 class="box">
 	<p>先变宽后变高</p>
  </div>
 ```
@@ -77,8 +85,7 @@ data-event属性用于判断触发事件类型，其值为事件名（默认为c
 
 data-trigger的值为触发的选择器（可以是id也可以是class）
 
-同时需要设置trigger目标元素的data-event属性
-
+同时需要设置trigger目标元素的data-event属性 
 data-event属性用于判断触发事件类型，其值为事件名（默认为click）
 
 ```javascript
@@ -92,7 +99,10 @@ $(function(){
 
 ```html
 <div id="ango" data-event="anie" class="box2">运行动画后触发</div>
-<div id="js_box3" data-ani="top:50%;width:32%" class="box" data-trigger="#ango">box3</div>
+<div id="js_box3" 
+	 data-ani="top:50%;width:32%" 
+	 data-trigger="#ango"
+	 class="box" >box3</div>
 ```
 
 
