@@ -51,6 +51,7 @@ $(function(){
 * data-duration 持续时间，单位为毫秒，1000则实际为1秒
 * data-delay 延时 即等待时间。可用于多个动画顺序执行。
 * data-easing 缓冲效果  这里使用的是贝塞尔值
+
 ```html
 <div data-delay="1000" 
 	 data-ani="width:32%;opacity:0|height:100px;opacity:10" 
@@ -61,8 +62,8 @@ $(function(){
  </div>
 ```
 
-easing动画效果：[http://easings.net/zh-cn](http://easings.net/zh-cn)
-CSS3 贝塞尔曲线：[http://www.roblaplaca.com/examples/bezierBuilder/](http://www.roblaplaca.com/examples/bezierBuilder/)
+	easing动画效果：[http://easings.net/zh-cn](http://easings.net/zh-cn)
+	CSS3 贝塞尔曲线：[http://www.roblaplaca.com/examples/bezierBuilder/](http://www.roblaplaca.com/examples/bezierBuilder/)
 
 ### 设置触发条件
 
@@ -86,6 +87,7 @@ data-event属性用于判断触发事件类型，其值为事件名（默认为c
 data-trigger的值为触发的选择器（可以是id也可以是class）
 
 同时需要设置trigger目标元素的data-event属性 
+
 data-event属性用于判断触发事件类型，其值为事件名（默认为click）
 
 ```javascript
