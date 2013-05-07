@@ -44,9 +44,9 @@ $(function(){
 
 ### 设置动画效果
 
-*data-duration 持续时间，单位为毫秒，1000则实际为1秒
-*data-delay 延时 即等待时间。可用于多个动画顺序执行。
-*data-easing 缓冲效果  这里使用的是贝塞尔值
+* data-duration 持续时间，单位为毫秒，1000则实际为1秒
+* data-delay 延时 即等待时间。可用于多个动画顺序执行。
+* data-easing 缓冲效果  这里使用的是贝塞尔值
 ```html
 <div data-delay="1000" data-ani="width:32%;opacity:0|height:100px;opacity:10" data-duration="1000" data-easing="0.39, 0.575, 0.565, 1" class="box">
 	<p>先变宽后变高</p>
@@ -59,8 +59,11 @@ CSS3 贝塞尔曲线：[http://www.roblaplaca.com/examples/bezierBuilder/](http:
 ### 设置触发条件
 
 动画默认为自动运行，若需要事件触发运行，可使用data-trigger属性
+
 data-trigger的值为触发的选择器（可以是id也可以是class）
+
 同时需要设置trigger目标元素的data-event属性
+
 data-event属性用于判断触发事件类型，其值为事件名（默认为click）
 
 ```html
@@ -71,8 +74,11 @@ data-event属性用于判断触发事件类型，其值为事件名（默认为c
 ### 设置自定义事件触发
 
 动画默认为自动运行，若需要事件触发运行，可使用data-trigger属性
+
 data-trigger的值为触发的选择器（可以是id也可以是class）
+
 同时需要设置trigger目标元素的data-event属性
+
 data-event属性用于判断触发事件类型，其值为事件名（默认为click）
 
 ```javascript
