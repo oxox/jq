@@ -1,4 +1,11 @@
-// JQ 动画插件
+/*!
+ * jQuery 动画插件
+ * http://oxox.io/jq/anie
+ *
+ * Copyright 2013, hugohua
+ *
+ * Date: 2013-05-07
+ */
 (function($,undefined){
 
 //CSS3 贝塞尔曲线：http://www.roblaplaca.com/examples/bezierBuilder/
@@ -88,7 +95,7 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
 			}
 
 			if( typeof(option.delay) === 'string' ){
-				delay = option.deplay.split('|');
+				delay = option.delay.split('|');
 			}else{
 				delay =[(option.delay||$.fn.anie.defaults.delay)];
 			}
