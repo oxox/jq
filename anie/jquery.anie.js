@@ -46,14 +46,80 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
     /**
      * CSS3动画
      */
-    var css3Anie = function($element,option){
-    	$element.delay(option.delay).queue(function(next){
-			$element.css(option.ani);
-			//回调函数
-			if (option.complete) option.complete.apply($element[0]);
-			next();
-		});
+    var css3Anie = function($e,option){
+    	
+		if ($.support.transition){
+			//CSS3动画
+			$e.delay(option.delay).queue(function(next){
+				$e.css(option.ani);
+				//回调函数
+				if (option.complete) option.complete.apply($element[0]);
+				next();
+			});
+		}else{
+			//JS动画
+			$e.queue(function(next) {
+				$(this).delay(option.delay).animate(option.ani, option.duration, convertEasing(option.easing), option.complete);
+				next();
+			});
+		}
     };
+
+    /**
+	 * CSS & JS 动画
+	 */
+	var transtion = function($e,option){
+
+		//格式化
+		if (option.ani && (typeof option.ani === 'string') ) {
+			//ani
+			var anis = option.ani.split('|'),
+				length = anis.length,
+				duration,
+				delay,
+				easing;
+
+			//console.log(anis);
+
+			if( typeof(option.duration) === 'string' ){
+				duration = option.duration.split('|');
+			}else{
+				duration =[(option.duration||$.fn.anie.defaults.duration)];
+			}
+
+			if( typeof(option.delay) === 'string' ){
+				delay = option.deplay.split('|');
+			}else{
+				delay =[(option.delay||$.fn.anie.defaults.delay)];
+			}
+
+			if( typeof(option.easing) === 'string' ){
+				easing = option.easing.split('|');
+			}else{
+				easing = [ $.fn.anie.defaults.easing];
+			}
+
+				
+			//多个动画
+			for(var i=0;i<length;i++){
+				var obj ={
+					'ani':formatAttr(anis[i]),
+					'duration':(duration[i]||duration[0]),
+					'delay':(delay[i]||delay[0]),
+					'easing':(easing[i]||easing[0])
+				};
+
+				obj.ani.transition || (obj.ani.transition = 'all '+ obj.duration +'ms cubic-bezier(' + obj.easing + ')');
+				css3Anie($e,obj);
+			};
+
+		}else{
+			//通过JS方式调用
+			option.ani.transition || (option.ani.transition = 'all '+ option.duration +'ms cubic-bezier(' + option.easing + ')');
+			css3Anie($e,option);
+		}
+
+	};
 	
 	var Anie = (function(){
 
@@ -80,25 +146,8 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
 			if (duration !== undefined && (typeof duration) != 'object') {
 	            options = {ani:properties,duration: duration, easing: easing, complete: complete };
 	        }
-	        
 			this.settings = $.extend({},$.fn.anie.defaults,this.element.data(),options);
-			//console.info(element,properties, duration, easing, complete ,'==',this.settings,'init')
-		};
-
-		/**
-		 * CSS & JS 动画
-		 */
-		var transtion = function($e,option){
-			//支持CSS3动画
-			if ($.support.transition){
-				css3Anie($e,option);
-			}else{
-				//JS动画
-				$e.queue(function(next) {
-					$(this).delay(option.delay).animate(option.ani, option.duration, convertEasing(option.easing), option.complete);
-					next();
-				});
-			}
+			this.init();
 		};
 
 		/**
@@ -109,17 +158,6 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
 			init:function(){
 				var $this = this.element,
 					option = this.settings;
-
-				//格式化
-				if (option.ani && (typeof option.ani === 'string') ) {
-					option.ani = formatAttr(option.ani)
-					
-					//判断是否已经有动画效果,如果样式里已经有transition了，则使用自带的transition
-					if(!option.ani.transition){
-						option.ani.transition = 'all '+ option.duration +'ms cubic-bezier(' + option.easing + ')';//'+ formatCss3AniType(option.easing);
-					}
-				};
-
 				//判断触发条件
 				//默认执行动画
 				if(!option.trigger){
@@ -147,7 +185,6 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
 	      var $this = $(this),
 	          data = $this.data('anie');
 	      if (!data) $this.data('anie', (data = new Anie(this, prop, speed, easing, callback)))
-	      // if (prop == undefind) data.toggle()
 	      if (typeof prop == 'string') data[prop]()
 	    })
     };
@@ -164,8 +201,8 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
 
     $(function () {
     	$('[data-ani]').each(function(){
-    		$(this).anie('init');
-    		// return new Anie();
+    		// $(this).anie('init');
+    		return new Anie($(this));
     	})
     });    
 
