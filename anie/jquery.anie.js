@@ -4,7 +4,7 @@
  *
  * Copyright 2013, hugohua
  *
- * Date: 2013-05-07
+ * Date: 2013-05-09
  */
 (function($,undefined){
 
@@ -54,13 +54,19 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
      * CSS3动画
      */
     var css3Anie = function($e,option){
-    	
+    	// debugger
 		if ($.support.transition){
 			//CSS3动画
 			$e.delay(option.delay).queue(function(next){
 				$e.css(option.ani);
 				//回调函数
-				if (option.complete) option.complete.apply($element[0]);
+				//css运行后执行
+				if (option.complete){
+					setTimeout(function(){
+						option.complete.apply($e[0]);
+					},option.duration);
+
+				}
 				next();
 			});
 		}else{
@@ -142,17 +148,16 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
 				options.ani = properties;
 			}
 			//两个参数时的回调函数
-			if (typeof duration == "function") {
+			if ( $.isFunction(duration) ) {
 				complete  = duration;
+				duration = undefined;
 			}
 			//三个参数时
-			if (typeof easing == "function") {
+			if ( $.isFunction(easing)) {
 				complete  = easing;
+				easing = undefined;
 			}
-			//假设是 四个参数同时存在
-			if (duration !== undefined && (typeof duration) != 'object') {
-	            options = {ani:properties,duration: duration, easing: easing, complete: complete };
-	        }
+	        options = {ani:properties,duration: duration, easing: easing, complete: complete };
 			this.settings = $.extend({},$.fn.anie.defaults,this.element.data(),options);
 			this.init();
 		};
@@ -188,12 +193,9 @@ $.extend({bez:function(a){var b="bez_"+$.makeArray(arguments).join("_").replace(
 	})();
 	
 	$.fn.anie = function (prop, speed, easing, callback) {
-		return this.each(function () {
-	      var $this = $(this),
-	          data = $this.data('anie');
-	      if (!data) $this.data('anie', (data = new Anie(this, prop, speed, easing, callback)))
-	      if (typeof prop == 'string') data[prop]()
-	    })
+		return this.each(function(){
+			new Anie(this, prop, speed, easing, callback);
+		})
     };
 
     $.fn.anie.defaults = {
