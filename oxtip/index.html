@@ -25,8 +25,8 @@ h4 a{font-size:16px;}
 .yx_wrap{position:relative;width:990px;height:100%;margin:0 auto;text-align:center;}
 .mod_hint{display:none;}
 .mod_hint .lk_0{margin-left:10px;}
-.demo2{position:absolute;right:20px;bottom:20px;}
-.demo3{position:absolute;right:0;top:45%;}
+.demo1,.demo2,.demo3{text-align:right;}
+.gist{text-align:left;}
 </style>
 </head>
 <body>
@@ -36,12 +36,15 @@ h4 a{font-size:16px;}
 
 <div class="yx_wrap sec_1">
     <h1>jquery.oxtip.js</h1>
-    <h3><a href="javascript:;" data-oxtipid="#tip1">示例1 - hover触发</a></h3>
+    <h3>一个提示浮层的jQuery插件，能够动态计算提示或浮层的位置。<a href="api/index.html" class="lk_0">查看API文档&gt;&gt;</a></h3>
+    <script src="https://gist.github.com/mamboer/6037007.js"></script>
+    
+    <h3 class="demo1"><a href="javascript:;" data-oxtipid="#tip1">示例1 - hover触发</a></h3>
     <h3 class="demo2">
-        <a href="javascript:;" data-oxtipid="#tip2" data-oxtiptrigger="click.oxtip" data-oxtipautohide="false">示例2 - 点击触发</a>
+        <a href="javascript:;" data-oxtipid="#tip3">示例2 - hover触发，自动计算边界</a>
     </h3>
     <h3 class="demo3">
-        <a href="javascript:;" data-oxtipid="#tip3">示例3 - hover触发，自动计算边界</a>
+        <a href="javascript:;" data-oxtipid="#tip2" data-oxtiptrigger="click.oxtip" data-oxtipautohide="false">示例3 - 点击触发，不自动隐藏</a>
     </h3>
 </div>
 
@@ -55,7 +58,7 @@ h4 a{font-size:16px;}
 
 <div id="tip2" class="mod_hint"  style="width:150px;">
     <div class="mod_hint_inner">
-        一个提示浮层的jQuery插件，能够动态计算提示或浮层的位置。注意data-xx的应用哦。<br/><a href="api/index.html" class="lk_0">查看API文档&gt;&gt;</a>	
+        一个提示浮层的jQuery插件，能够动态计算提示或浮层的位置。注意data-xx的应用哦。<br/><a href="javascript:;" class="lk_0 oxtip_close">关闭</a>	
     </div>
     <i class="mod_hint_arrow1"></i>
 </div>
@@ -71,6 +74,11 @@ h4 a{font-size:16px;}
 
 <script src="http://oxox.io/assets/js/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/jquery.oxtip.js"></script>
-
+<script>
+    $('.oxtip_close').click(function(e){
+        $(this).parents('.mod_hint').hide();
+        return false;
+    });
+</script>
 </body>
 </html>

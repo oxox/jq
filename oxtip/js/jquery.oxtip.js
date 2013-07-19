@@ -214,6 +214,12 @@
                     this.offset.left = this.offset0.left;
                     this.arrowOffset.left = this.triggerWidth/2;
                 }
+                //箭头left值修正
+                if( (this.arrowOffset.left+this.arrowWidth) > this.tipWidth ){
+                    this.arrowOffset.left = this.tipWidth-this.arrowWidth;
+                }else if(this.arrowOffset.left<0){
+                    this.arrowOffset.left = 0;
+                }
                 //计算top
                 this.$arrow.removeClass(this.opts.oxtiparrow1+' '+this.opts.oxtiparrow2)
                     .addClass(this.opts.oxtiparrow1);
