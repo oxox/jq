@@ -1,0 +1,361 @@
+{
+    "project": {
+        "name": "jQuery.oxtip",
+        "description": "JS API for jQuery.oxtip.js",
+        "version": "1.0.0",
+        "url": "http://oxox.io/jq/oxtip",
+        "logo": "http://static.gtimg.com/icson/img/common/logo.png"
+    },
+    "files": {
+        "js\\jquery.oxtip.js": {
+            "name": "js\\jquery.oxtip.js",
+            "modules": {},
+            "classes": {
+                "jQuery.oxtip": 1,
+                "model": 1,
+                "jQuery.fn.oxtip.defaults": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "jQuery.oxtip": {
+            "name": "jQuery.oxtip",
+            "shortname": "jQuery.oxtip",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\jquery.oxtip.js",
+            "line": 1,
+            "description": "一个提示浮层的jQuery插件，能够动态计算提示或浮层的位置",
+            "author": "levin",
+            "version": "1.0.0",
+            "static": 1
+        },
+        "model": {
+            "name": "model",
+            "shortname": "model",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\jquery.oxtip.js",
+            "line": 35,
+            "description": "Internal core class for oxtip",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "$d",
+                    "description": "jquery dom object for the oxtip",
+                    "type": "Object"
+                },
+                {
+                    "name": "opts0",
+                    "description": "configuration options",
+                    "type": "Object"
+                }
+            ]
+        },
+        "jQuery.fn.oxtip.defaults": {
+            "name": "jQuery.fn.oxtip.defaults",
+            "shortname": "jQuery.fn.oxtip.defaults",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\jquery.oxtip.js",
+            "line": 329,
+            "description": "jQuery.oxtip's default configuration",
+            "static": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 26,
+            "description": "oxtip插件入口方法",
+            "itemtype": "method",
+            "name": "jQuery.fn.oxtip",
+            "params": [
+                {
+                    "name": "opts",
+                    "description": "配置对象，具体各个配置属性请参考jQuery.fn.oxtip.defaults",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n           $('#test').oxtip({oxtiptrigger:'click.oxtip'});"
+            ],
+            "class": "jQuery.oxtip"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 43,
+            "description": "oxtip's trigger object",
+            "itemtype": "property",
+            "name": "$trigger",
+            "type": "Object",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 49,
+            "description": "oxtip's jquery data",
+            "itemtype": "property",
+            "name": "data\ntype Object",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 55,
+            "description": "oxtip's configuration object",
+            "itemtype": "property",
+            "name": "opts",
+            "type": "Object",
+            "default": "jQuery.fn.oxtip.defaults",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 62,
+            "description": "oxtip's jquery dom object",
+            "itemtype": "property",
+            "name": "$tip",
+            "type": "Object",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 68,
+            "description": "oxtip's arrow object",
+            "itemtype": "property",
+            "name": "$arrow",
+            "type": "Object",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 75,
+            "description": "trigger's offset",
+            "itemtype": "property",
+            "name": "offset0",
+            "type": "Object",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 81,
+            "description": "tip's offset",
+            "itemtype": "property",
+            "name": "offset",
+            "type": "Object",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 138,
+            "description": "更新提示的位置数据",
+            "itemtype": "method",
+            "name": "updateOffset",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 147,
+            "description": "隐藏提示",
+            "itemtype": "method",
+            "name": "hide",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 158,
+            "description": "显示提示",
+            "itemtype": "method",
+            "name": "show",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 167,
+            "description": "提示是否可见",
+            "itemtype": "method",
+            "name": "isTipVisible",
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 174,
+            "description": "获取提示触发元素相对于body的偏移值",
+            "itemtype": "method",
+            "name": "getTriggerOffset",
+            "return": {
+                "description": "相对于body的偏移值",
+                "type": "Object"
+            },
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 188,
+            "description": "获取提示相对于body的偏移值",
+            "itemtype": "method",
+            "name": "getTipOffset",
+            "return": {
+                "description": "相对于body的偏移值",
+                "type": "Object"
+            },
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 230,
+            "description": "提示是否超出了右窗口",
+            "itemtype": "method",
+            "name": "isBeyondRight",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 241,
+            "description": "提示是否超出了左窗口",
+            "itemtype": "method",
+            "name": "isBeyondLeft",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 252,
+            "description": "提示是否超出了上窗口",
+            "itemtype": "method",
+            "name": "isBeyondTop",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 263,
+            "description": "提示是否超出了下窗口",
+            "itemtype": "method",
+            "name": "isBeyondBottom",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "model"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 335,
+            "description": "提示触发元素的css选择器",
+            "itemtype": "property",
+            "name": "oxtiptrigger",
+            "type": "{String}",
+            "default": "'mouseenter.oxtip'",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 342,
+            "description": "是否自动隐藏",
+            "itemtype": "property",
+            "name": "oxtipautohide",
+            "type": "{Boolean}",
+            "default": "true",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 349,
+            "description": "自动隐藏延时",
+            "itemtype": "property",
+            "name": "oxtipautohidedelay",
+            "type": "{Integer}",
+            "default": "300",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 356,
+            "description": "提示箭头的css选择器",
+            "itemtype": "property",
+            "name": "oxtiparrow",
+            "type": "{String}",
+            "default": "'>i'",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 363,
+            "description": "上箭头的类名",
+            "itemtype": "property",
+            "name": "oxtiparrow1",
+            "type": "{String}",
+            "default": "'mod_hint_arrow1'",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 370,
+            "description": "下箭头的类名",
+            "itemtype": "property",
+            "name": "oxtiparrow3",
+            "type": "{String}",
+            "default": "'mod_hint_arrow3'",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 377,
+            "description": "提示的zindex",
+            "itemtype": "property",
+            "name": "oxtipindex",
+            "type": "{Integer}",
+            "default": "200",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 384,
+            "description": "对于可见的提示，是否不重新计算位置",
+            "itemtype": "property",
+            "name": "skipVisibleTip",
+            "type": "{Boolean}",
+            "default": "false",
+            "class": "jQuery.fn.oxtip.defaults"
+        },
+        {
+            "file": "js\\jquery.oxtip.js",
+            "line": 391,
+            "description": "提示容器相对于触发元素的边距",
+            "itemtype": "property",
+            "name": "oxtipmargin",
+            "type": "{Integer}",
+            "default": "null 取触发元素的高度",
+            "class": "jQuery.fn.oxtip.defaults"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: version",
+            "line": " js\\jquery.oxtip.js:1"
+        }
+    ]
+}

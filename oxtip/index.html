@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6" lang="zh-cn"><![endif]-->
+<!--[if IE 7]><html class="ie ie7" lang="zh-cn"><![endif]-->
+<!--[if IE 8]><html class="ie ie8" lang="zh-cn"><![endif]-->
+<!--[if IE 9]><html class="ie ie9" lang="zh-cn"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-cn"><!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<meta name="Copyright" content="oxox.io" />
+<meta name="Description" content="一个提示浮层的jQuery插件，能够动态计算提示或浮层的位置" />
+<meta name="Keywords" content="jquery,oxtip,tip,提示,浮层" />
+<title>oxox - jQuery.oxtip.js </title>
+<link rel="stylesheet" type="text/css" href="http://static.gtimg.com/icson/css/common/gb.css" media="screen" />
+<style type="text/css">
+html,body{display:block;height:100%;}
+html{overflow-y:auto;}
+body{background:#fff;}
+a {color:#74ce87;font-size:14px;}
+a:hover{color:#999;}
+h1{font-size:28px;padding:30px 0 20px;text-transform:uppercase;}
+h3{font-size:22px;padding:20px 0 15px;}
+h3 a{font-size:20px;}
+h4{font-size:16px;margin-bottom:10px;}
+h4 a{font-size:16px;}
+.yx_wrap{position:relative;width:990px;height:100%;margin:0 auto;text-align:center;}
+.mod_hint{display:none;}
+.mod_hint .lk_0{margin-left:10px;}
+.demo2{position:absolute;right:20px;bottom:20px;}
+.demo3{position:absolute;right:0;top:45%;}
+</style>
+</head>
+<body>
+
+
+<!-- S 通栏 -->
+
+<div class="yx_wrap sec_1">
+    <h1>jquery.oxtip.js</h1>
+    <h3><a href="javascript:;" data-oxtipid="#tip1">示例1 - hover触发</a></h3>
+    <h3 class="demo2">
+        <a href="javascript:;" data-oxtipid="#tip2" data-oxtiptrigger="click.oxtip" data-oxtipautohide="false">示例2 - 点击触发</a>
+    </h3>
+    <h3 class="demo3">
+        <a href="javascript:;" data-oxtipid="#tip3">示例3 - hover触发，自动计算边界</a>
+    </h3>
+</div>
+
+
+<div id="tip1" class="mod_hint"  style="width:250px;">
+    <div class="mod_hint_inner">
+        一个提示浮层的jQuery插件，能够动态计算提示或浮层的位置<br/><a href="#" class="lk_0">查看API文档&gt;&gt;</a>	
+    </div>
+    <i class="mod_hint_arrow1"></i>
+</div>
+
+<div id="tip2" class="mod_hint"  style="width:150px;">
+    <div class="mod_hint_inner">
+        一个提示浮层的jQuery插件，能够动态计算提示或浮层的位置。注意data-xx的应用哦。<br/><a href="#" class="lk_0">查看API文档&gt;&gt;</a>	
+    </div>
+    <i class="mod_hint_arrow1"></i>
+</div>
+
+<div id="tip3" class="mod_hint"  style="width:550px;">
+    <div class="mod_hint_inner">
+        <h4>一个提示浮层的jQuery插件</h4>
+        <p>能够动态计算提示或浮层的位置。缩小窗口试试。</p>
+        <p><a href="#" class="lk_0">查看API文档&gt;&gt;</a></p>
+    </div>
+    <i class="mod_hint_arrow1"></i>
+</div>
+
+<script src="http://oxox.io/assets/js/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery.oxtip.js"></script>
+
+</body>
+</html>

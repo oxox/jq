@@ -1,0 +1,16 @@
+{
+    "name": "jQuery.oxtip",
+    "description": "JS API for jQuery.oxtip.js",
+    "version": "1.0.0",
+    "url": "http://oxox.io/jq/oxtip",
+    "logo":"http://static.gtimg.com/icson/img/common/logo.png",
+    "options": {
+        "linkNatives": "true",        
+        "attributesEmit": "true",
+        "selleck": "true",
+        "ignorePaths":["bootstrap","css","img","less","pic","plugins","tpl"],
+        "exclude": "",
+        "paths": ["js/"],
+        "outdir": "api/"
+    }
+}
