@@ -2,7 +2,7 @@
   a simple tab & slide plugin
   @name jquery.oxslide.js
   @author levinhuang (lv)
-  @version 1.0
+  @version 1.1
   @date 04/28/2013
   @copyright (c) 2012-2013 levinhuang (http://oxox.io,http://tencent.com,http://t.qq.com/badstyle)
   @license Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
@@ -25,7 +25,7 @@
 		//event binding entry
 		_initEvts:function(){
 			var me = this;
-			this.$navs[this.opts.methodName](function(e){
+			this.$navs.bind(this.opts.methodName,function(e){
 				var $me = $(this);
 				if ($me.hasClass(me.opts.clTabOn)) {
 					return false;
@@ -63,6 +63,12 @@
 			this.prevIdx = this.curIdx;
 			this.curIdx = idx;
 			this.updateMenuStatus(idx);
+
+			// sole panel and custom switch logic
+			if (this.opts.isPanelSole&&this.opts.onSwitch) {
+				this.opts.onSwitch.call(this);
+				return;
+			};
 			
 			if(this.$curPanel){
 				this.$curPanel.removeClass(this.opts.clTabOn);
@@ -156,7 +162,8 @@
 		onSwitch:null,				// onSwitch callback - 在这里写自定义的切换效果
 		clTabOn:'on',				// 给当前内容面板（和当前菜单）加的类名
 		cssTabNav:'a',				// TAB/Slide 菜单选择器
-		cssTabPanel:null			// TAB/Slide 面板选择器。如果不指定，则使用cssTabNav的href属性或者data-stab属性
+		cssTabPanel:null,			// TAB/Slide 面板选择器。如果不指定，则使用cssTabNav的href属性或者data-stab属性
+		isPanelSole:false			// 是否只有单个TAB/Slide面板，需与onSwitch一起用。如果为true，一般的场景为一个img标签，切换src属性。
 	};
 
 })(jQuery);
