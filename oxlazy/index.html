@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>oxox.io - jquery.oxlazy.js demo</title>
+		<meta name="Copyright" content="OXOX.io" />
+		<meta name="Description" content="jquery.oxlazy.js,a humble jquery lazyload plugin, supporting lazyload for img|bg|iframe" />
+		<link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'/>
+		<style type="text/css">
+		/*点*/
+		*{margin: 0; padding: 0;font-family: 'Syncopate', sans-serif;}
+		.ju_scroll{position: fixed; z-index: 10; top: 300px; right: 100px; _position: absolute}
+		.ju_scroll a{ width: 20px; height: 20px; display: block; position: relative; font-size: 0; border-radius: 50%; margin: 8px 0; cursor: pointer;background-color: #b5b5b5; }
+
+		.ju_scroll a:hover,
+		.ju_scroll a.selected{background-color: #ff7f02; text-decoration: none;}
+		.ju_scroll a:hover span,
+		.ju_scroll a:hover b,
+		.ju_scroll a.selected span,
+		.ju_scroll a.selected b{display: block; background: #ff7f02;}
+		.ju_scroll span{ position: absolute; top: -1px; right: 27px; font-size: 14px; color: #FFF; width: 70px; height: 22px; line-height: 22px; text-align: center; background: none; display: none;}
+		.ju_scroll b{ width: 20px; height: 5px; position: absolute; top: 8px; right: 10px; background: none; display: none;}
+		.act_page{background-position: top center;background-repeat: no-repeat;height: 1400px;}
+		.act_page_1{  background-image: url(http://www.richardshepherd.com/smashing/parallax/images/puckered.png);}
+		.oxlogo{position:fixed;width:380px;text-align: center;top: 50%;margin-top: -50px;left:50%;margin-left:-190px;}
+		.oxlogo h1{padding-bottom: 20px;font-size: 26px;color:#599;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<!-- page -->
+			<div class="act_pages">
+				<div class="act_page act_page_1">
+					<div class="oxlogo">
+						<h1>jquery.oxlazy.js</h1>
+						<img data-oxlazy="http://oxox.io/assets/img/ox.png" src="http://static.gtimg.com/icson/img/common/blank.png" alt="oxlazy rocks me!"/>
+					</div>
+				</div>
+				<div class="act_page act_page_2" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide2.jpg"></div>
+				<div class="act_page act_page_3" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide4.jpg"></div>
+				<div class="act_page act_page_4" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide3.jpg"></div>
+			</div>
+			
+			<div data-snav=".act_page" data-offset="center" class="act_scroll_nav ju_scroll">
+				<a class="selected" href="javascript:;"><span>唤醒健康</span><b></b></a>
+				<a href="javascript:;"><span>睡眠篇</span><b></b></a>
+				<a href="javascript:;"><span>运动篇</span><b></b></a>
+				<a href="javascript:;"><span>工作篇</span><b></b></a>
+			</div>
+			<!-- act_scroll_nav -->
+
+		</div>
+		<script type="text/javascript" src="//oxox.io/assets/js/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="//oxox.io/jq/scrollnav/jquery.scrollnav.js"></script>
+		<script type="text/javascript" src="//oxox.io/jq/oxlazy/jquery.oxlazy.js"></script>
+
+	</body>
+</html>
+
