@@ -15,9 +15,8 @@
 			if (this.cnt===0) {
 				return false;
 			};
-			$win.bind("scroll.oxlazy",function(e){
-				oxlazy.detect();
-			}).bind("resize.oxlazy",function(e){
+            // 合并事件
+			$win.bind("scroll.oxlazy resize.oxlazy",function(e){
 				oxlazy.detect();
 			});
 		},
@@ -47,10 +46,6 @@
 		rock:function(item){
 
 			var srcOriginal = item.getAttribute(this.flag);
-
-			if ( (!srcOriginal) || (srcOriginal==='') ) {
-				return false;
-			};
 
 			var $item = this.isInView(item);
 			if (!$item) {
