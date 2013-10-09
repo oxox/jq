@@ -39,6 +39,7 @@ Notice: Don't forget the bg repeat and position settings in you css!
 
 ## Changelog
 * v1.0 init
+* v1.1 代码优化（合并bind的事件）；移除rock中不必要的判断
 
 ## Other
 [My Blog](http://www.faso.me)
