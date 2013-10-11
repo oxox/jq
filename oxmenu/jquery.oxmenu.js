@@ -159,8 +159,8 @@
                 me.onHoverOut();
                 return false;
             });
-			$win.bind('resize.oxmenu-modelA,oxmenuPositionNeedUpdating',function(e){
-				me.updatePosition();
+			$win.bind('resize.oxmenu-modelA,oxmenuPositionNeedUpdating',function(e,d){
+				me.updatePosition(d);
 			});
         },
 		_initSubMenus:function($sub){
