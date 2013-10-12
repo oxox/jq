@@ -159,7 +159,7 @@
                 me.onHoverOut();
                 return false;
             });
-			$win.bind('resize.oxmenu-modelA,oxmenuPositionNeedUpdating',function(e,d){
+			$win.bind('resize.oxmenu-modelA oxmenuPositionNeedUpdating',function(e,d){
 				me.updatePosition(d);
 			});
         },
@@ -189,7 +189,7 @@
 			sTop = sTop||0;
 			var offs = this.$trigger.offset();
 			this.$sub.css({
-				bottom:(winDim.height-offs.top-this.opts.menuHeight+sTop) //$me.outerHeight()，配置提升性能。如样式变更需做相应修改
+				bottom:(winDim.height+J.$win.scrollTop()-offs.top-this.opts.menuHeight+sTop) //$me.outerHeight()，配置提升性能。如样式变更需做相应修改
 			});
 		},
 		onShowing:function($d,delay){
