@@ -37,7 +37,7 @@
     $.fn.oxmenu.defaults = {
         showSpeed:200,
         showDelay:300,
-        hideDelay:400,
+        hideDelay:0,
         subMenuIdPrefix:'xdataListMore',
         clHoverIn:'data_list_item_hover',
         clSubMenuOn:'data_list_more_on',
