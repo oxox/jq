@@ -94,8 +94,9 @@
             $sub.bind('mouseleave.oxmenu',function(e){
                 //menuBase.hideAllMenus();
             }).bind('mouseover.oxmenu',function(e){
-            //这里要用mouseover，用mouseleave的话，从子级菜单滑动鼠标到父级菜单时不会触发
+            //这里要用mouseover，用mouseenter的话，从子级菜单滑动鼠标到父级菜单时不会触发
                 menuBase.stopHideAllMenus();
+                clearTimeout(me.hideTimer);
             });
 
         },
@@ -193,7 +194,7 @@
 			sTop = sTop||0;
 			var offs = this.$trigger.offset();
 			this.$sub.css({
-				bottom:(winDim.height+J.$win.scrollTop()-offs.top-this.opts.menuHeight+sTop) //$me.outerHeight()，配置提升性能。如样式变更需做相应修改
+				bottom:(winDim.height+$win.scrollTop()-offs.top-this.opts.menuHeight+sTop) //$me.outerHeight()，配置提升性能。如样式变更需做相应修改
 			});
 		},
 		onShowing:function($d,delay){
