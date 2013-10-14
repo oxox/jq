@@ -17,24 +17,21 @@
 
             var $me = $(this),
                 instance = $me.data("oxmenu");
-            if (instance) {
+            if(!instance){
+                $me.data("oxmenu", new modelA($me,opts1));
+                return;
+            };
+            if (instance[opts]) {
 
-                if (instance[opts]) {
+                instance[opts].apply(instance, Array.prototype.slice.call(args, 1));
 
-                    instance[opts].apply(instance, Array.prototype.slice.call(args, 1));
+            } else if (typeof (opts) === 'object' || !opts) {
 
-                } else if (typeof (opts) === 'object' || !opts) {
-
-                    instance._update.apply(instance, args);
-
-                } else {
-                    console.log('Method ' + opts + ' does not exist in jQuery.fn.oxmenu');
-                }
+                instance._update.apply(instance, args);
 
             } else {
-                $me.data("oxmenu", new modelA($me,opts1));
+                console.log('Method ' + opts + ' does not exist in jQuery.fn.oxmenu');
             }
-
         });
     };
     $.fn.oxmenu.defaults = {
@@ -108,7 +105,10 @@
             }
             var me = this,
                 $me = this.$trigger;
-            $me.removeClass(me.opts.clHoverIn);
+            //如果data-oxmenukeephoverstate为1则不移除hover态
+            if(!$me[0].getAttribute('data-oxmenukeephoverstate')){
+                $me.removeClass(me.opts.clHoverIn);
+            };
             $sub.stop(true,true).hide(me.opts.showSpeed);
             $sub.removeClass(me.opts.clSubMenuOn);
             $sub.unbind('.oxmenu');
@@ -123,7 +123,10 @@
                 $me = this.$trigger,
                 $sub = $me.data('oxmenusublist');
             if( (!$sub) || (!me.isShowed) ){
-                $me.removeClass(me.opts.clHoverIn);
+                //如果data-oxmenukeephoverstate为1则不移除hover态
+                if(!$me[0].getAttribute('data-oxmenukeephoverstate')){
+                    $me.removeClass(me.opts.clHoverIn);
+                };
                 return;
             }
             this.hideTimer = setTimeout(function(){
@@ -145,6 +148,7 @@
         this.hideTimer = null;
         this.isShowed = false;
 		this.isDomReady = false;
+        this.type=0;//根节点
 		this.subMenuWithChildren=[];
         this._init();
 	};
@@ -172,7 +176,7 @@
 			this.$subMenuWithChildren = $sub.find(me.opts.cssMenuItemHasChildren);
 			var len = this.$subMenuWithChildren.length;
 			for(var i = 0 ;i<len;i++){
-				this.subMenuWithChildren.push(new modelB(this.$subMenuWithChildren.eq(i),this.opts));
+				this.subMenuWithChildren.push(new modelB(this.$subMenuWithChildren.eq(i),this));
 			};
 		},
 		hideSubMenus:function(){
@@ -235,18 +239,22 @@
 		resetAll:function(){
 			this.resetTimer();
 			this.hideSubMenus();
-			this.$trigger.removeClass(this.opts.clHoverIn);
+            //如果data-oxmenukeephoverstate为1则不移除hover态
+            if(!this.$trigger[0].getAttribute('data-oxmenukeephoverstate')){
+                this.$trigger.removeClass(this.opts.clHoverIn);
+            };
 		}
     };
 	
 	$.extend(modelA.prototype,menuBase);
 	
-    var modelB = function($item,opts){
+    var modelB = function($item,parent){
         this.$trigger=$item;
-        this.opts = opts;
+        this.opts = parent.opts;
         this.showTimer = null;
         this.hideTimer = null;
         this.isShowed = false;
+        this.type=1;//非跟节点
         this._init();
     };
     modelB.prototype = {
