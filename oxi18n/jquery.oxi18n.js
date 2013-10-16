@@ -35,15 +35,15 @@
         process:function($item){
             var opts = this.opts;
             i18n.process($item[0],opts);
-            this.$container.find('[$]'.replace(this.opts.attrFlag)).each(function(i,o){
+            this.$container.find('[$]'.replace('$',this.opts.attrFlag)).each(function(i,o){
                 i18n.process(o,opts);
             });
         },
         //update the options
         _update: function (opts,reInit) {
-            this.opts = opts;
+            this.opts = $.extend(this.opts,opts);
             if (reInit) {
-                this.stop()._init();
+                this._init();
             }
         }
     };
@@ -66,19 +66,22 @@
             };
             return str;
         },
-        locales = {
+        locales : {
             "zh-CN":{}
         },
         setLng:function(lng,lngData){
             this.curLng = lng;
             if(typeof(lngData)=='object'){
-                this.curLngData = this.locales[lng] = $.extend(this.locales[lng]||{},lngData);
+                this.curLngData = this.addLng(lng,lngData);
                 return;
             };
             if(!this.locales[lng]){
                 this.curLng = this.defaults.lng;
             }
             this.curLngData = this.locales[this.curLng];
+        },
+        addLng:function(lng,lngData){
+            return ( this.locales[lng] = $.extend(this.locales[lng]||{},lngData) );
         },
         /**
          * static translation method
@@ -124,6 +127,7 @@
             if(!attr){
                 return;
             };
+            console.log(attr);
             var isAttrReplacement = (attr.indexOf('=')!==-1);
             if(!isAttrReplacement){
                 try{
