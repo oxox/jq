@@ -1,8 +1,8 @@
 /**
  * A jquery plugin implementing client side internationalization
  * @author Levin
- * @created 10/16/2013 10:15 AM
- * @version 1.0.0
+ * @created 10/16/2013 13:28 PM
+ * @version 1.0.1
  */
 (function($){
     /**
@@ -106,7 +106,7 @@
                     };
                     return this.evalTpl(f,data);
                 };
-            if(len==1){
+            if( (len==1) || (!field) ){
                 return _t(field);
             };
             for(var i =1;i<len;i++){
@@ -127,7 +127,6 @@
             if(!attr){
                 return;
             };
-            console.log(attr);
             var isAttrReplacement = (attr.indexOf('=')!==-1);
             if(!isAttrReplacement){
                 try{
