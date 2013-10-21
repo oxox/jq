@@ -1,3 +1,10 @@
+/**
+ * 一个树形菜单jQuery插件
+ * @author levin
+ * @version 1.0.1
+ * @class jQuery.oxtree
+ * @static
+ */
 (function($){
 
     $.fn.oxtree = function (opts) {
@@ -35,6 +42,8 @@
         clMenuItemHasChildren:'data_list_child',
         triggerEvent:'click',
         cssTrigger:'>.data_list_ico',
+        lastActiveNodeIds:[],
+        autoOpenLastActiveNodes:true,
         allowMultipleOpening:false,
         onShowing:function(id,onShowCbk){}
     };
@@ -63,21 +72,42 @@
             $win.unbind('.oxtree').bind('domUpdated.oxtree',function(e){
                 me._init();
             });
-        },
 
+            this.openLastActiveNodes();
+        },
         toggle:function($obj){
             if( (!this.opts.allowMultipleOpening) && !($obj.hasClass(this.opts.clSubMenuOn)) ){
                 this.open($obj,true);
                 return;
             };
             $obj.toggleClass(this.opts.clSubMenuOn);
+            if($obj[0].id && $obj.hasClass(this.opts.clSubMenuOn)){
+                this.opts.lastActiveNodeIds.push($obj[0].id);
+            };
+        },
+        openLastActiveNodes:function(){
+            var ids = this.opts.lastActiveNodeIds,
+                len = ids.length,
+                needOpen = (len>0&&this.opts.autoOpenLastActiveNodes);
+            if(!needOpen){
+                return;
+            };
+            for(var i = 0 ;i<len;i++){
+                $('#'+ids[i]+' '+this.opts.cssTrigger).trigger(this.opts.triggerEvent+'.oxtree');
+            };
         },
         open:function($obj,only){
             if(only){
                 this.hideAll();
+                this.opts.lastActiveNodeIds = [];
             };
             $obj.addClass(this.opts.clSubMenuOn);
-            $obj.parents('.'+this.opts.clMenuItemHasChildren).addClass(this.opts.clSubMenuOn);
+            var me = this,
+                $items = $obj.parents('.'+this.opts.clMenuItemHasChildren).addClass(this.opts.clSubMenuOn);
+            $items.each(function(i,o){
+                o.id&&me.opts.lastActiveNodeIds.push(o.id);
+            });
+            $obj[0].id&&this.opts.lastActiveNodeIds.push($obj[0].id);
         },
         hideAll:function(){
             this.$children.removeClass(this.opts.clSubMenuOn);
