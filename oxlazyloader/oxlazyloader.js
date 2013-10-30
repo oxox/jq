@@ -30,6 +30,7 @@ define(function(require,exports,module){
 		_bindEvent: function(){
 			var self = this;
 			this._loadFn = function(){
+				console.log('srcoll')
 				self._loadItems();
 			}
 			$(window).bind('resize.' + this.constructor + ' scroll.'+ this.constructor, this._loadFn);
@@ -73,7 +74,6 @@ define(function(require,exports,module){
 				minTop = scrollTop - threshold,
 				itemTop = item.offset().top,
 				itemBottom = itemTop + item.outerHeight();
-
 			if (itemTop > maxTop || itemBottom < minTop) {
 				return false;
 			}
