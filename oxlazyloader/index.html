@@ -21,7 +21,6 @@
 		.ju_scroll span{ position: absolute; top: -1px; right: 27px; font-size: 14px; color: #FFF; width: 70px; height: 22px; line-height: 22px; text-align: center; background: none; display: none;}
 		.ju_scroll b{ width: 20px; height: 5px; position: absolute; top: 8px; right: 10px; background: none; display: none;}
 		.act_page{background-position: top center;background-repeat: no-repeat;height: 1400px;}
-		.act_page_1{  background-image: url(http://www.richardshepherd.com/smashing/parallax/images/puckered.png);}
 		.oxlogo{position:fixed;width:380px;text-align: center;top: 50%;margin-top: -50px;left:50%;margin-left:-190px;}
 		.oxlogo h1{padding-bottom: 20px;}
 		.oxlogo a{font-size: 26px;color:#599;}
@@ -32,15 +31,22 @@
 		<div class="wrapper">
 			<!-- page -->
 			<div class="act_pages">
-				<div class="act_page act_page_1">
-					<div class="oxlogo">
-						<h1><a href="https://github.com/oxox/jq/tree/master/oxlazy" target="_blank">jquery.oxlazy.js</a></h1>
-						<a href="//oxox.io" title="oxlazy rocks me!" target="_blank"><img data-oxlazy="http://oxox.io/assets/img/ox.png" src="http://static.gtimg.com/icson/img/common/blank.png" alt="oxlazy rocks me!"/></a>
-					</div>
+				<div class="oxlogo">
+					<h1><a href="https://github.com/oxox/jq/tree/master/oxlazy" target="_blank">oxlazyloader.js (CMD)</a></h1>
+					<a href="//oxox.io" title="oxlazy rocks me!" target="_blank"><img data-oxlazy="http://oxox.io/assets/img/ox.png" src="http://static.gtimg.com/icson/img/common/blank.png" alt="oxlazy rocks me!"/></a>
 				</div>
-				<div class="act_page act_page_2" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide2.jpg"></div>
-				<div class="act_page act_page_3" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide4.jpg"></div>
-				<div class="act_page act_page_4" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide3.jpg"></div>
+				<div class="act_page act_page_1">
+					<img src="http://static.gtimg.com/icson/img/common/blank.png" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/puckered.png" />
+				</div>
+				<div class="act_page act_page_2">
+					<img src="http://static.gtimg.com/icson/img/common/blank.png" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide2.jpg" />
+				</div>
+				<div class="act_page act_page_3">
+					<img src="http://static.gtimg.com/icson/img/common/blank.png" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide3.jpg" />
+				</div>
+				<div class="act_page act_page_4">
+					<img src="http://static.gtimg.com/icson/img/common/blank.png" data-oxlazy="http://www.richardshepherd.com/smashing/parallax/images/slide4.jpg" />
+				</div>
 			</div>
 			
 			<div data-snav=".act_page" data-offset="center" class="act_scroll_nav ju_scroll">
@@ -54,8 +60,16 @@
 		</div>
 		<script type="text/javascript" src="http://oxox.io/assets/js/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="http://oxox.io/jq/scrollnav/jquery.scrollnav.js"></script>
-		<script type="text/javascript" src="http://oxox.io/jq/oxlazy/jquery.oxlazy.js"></script>
-
+		<script type="text/javascript" src="http://oxox.io/assets/sea-modules/seajs/seajs/2.1.1/sea.js"></script>
+		<script type="text/javascript">
+			seajs.use("../oxlazyloader/oxlazyloader.js", function(oxLazyloader){
+				new oxLazyloader();
+				if (console && console.log) {
+						var html = oxLazyloader.toLazyloadHtml('<img src="a.jpg"><div>it\'s a test!!</div><img src="a.jpg" alt="test" />');
+						console.log(html)
+				}
+			});
+		</script>
 	</body>
 </html>
 
