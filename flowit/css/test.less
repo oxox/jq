@@ -1,0 +1,40 @@
+body{
+	background-color: #000;
+	color:#fff;
+	margin:0;
+	padding:0;
+}
+.mem_item{
+	position:relative;
+	height:877px;
+	overflow:hidden;
+	&:nth-child(even){
+		background-color: #ee4272
+	}
+}
+.ui-vflow,.ui-hflow{
+	position:absolute;
+	z-index:10;
+	height:200px;
+	width:120px;
+	top:0;
+	left:0;
+	border:2px solid #eee;
+	&:nth-child(2n){
+		top:350px;
+		left:500px;
+		border-color:lighten(#ee4272,20%);
+	}
+	&:nth-child(3n+1){
+		top:170px;
+		left:300px;
+	}
+	&:nth-child(4n){
+
+		top:290px;
+		left:auto;
+		right:200px;
+
+	}
+
+}

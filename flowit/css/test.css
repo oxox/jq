@@ -1,0 +1,41 @@
+body {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.mem_item {
+  position: relative;
+  height: 877px;
+  overflow: hidden;
+}
+.mem_item:nth-child(even) {
+  background-color: #ee4272;
+}
+.ui-vflow,
+.ui-hflow {
+  position: absolute;
+  z-index: 10;
+  height: 200px;
+  width: 120px;
+  top: 0;
+  left: 0;
+  border: 2px solid #eee;
+}
+.ui-vflow:nth-child(2n),
+.ui-hflow:nth-child(2n) {
+  top: 350px;
+  left: 500px;
+  border-color: #f6a0b8;
+}
+.ui-vflow:nth-child(3n+1),
+.ui-hflow:nth-child(3n+1) {
+  top: 170px;
+  left: 300px;
+}
+.ui-vflow:nth-child(4n),
+.ui-hflow:nth-child(4n) {
+  top: 290px;
+  left: auto;
+  right: 200px;
+}
