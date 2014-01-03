@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>oxox.io - jquery.modernloading.js demo</title>
+        <meta name="Copyright" content="OXOX.io" />
+        <meta name="Description" content="jquery.modernloading.js,modernloading effect in win8" />
+        <link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'/>
+        <style type="text/css">
+        /*点*/
+        *{margin: 0; padding: 0;font-family: 'Syncopate', sans-serif;}
+        html,body{display: block;height:100%;}
+        .hello{
+            position: relative;
+            z-index: 10001;
+            min-width:320px;
+            max-width:1024px;
+            margin:0 auto;
+            top:50%;
+            -webkit-transform:translateY(-50%);
+            transform:translateY(-50%);
+            border-radius: 2px;
+            background: #000;
+            color:#fff;
+            padding:30px 20px;
+        }
+        .hello h1{font-size: 26px;font-weight: bold;margin-bottom: 10px;}
+        .hello_log{margin-top:15px;font-size:11px;color:red;}
+        .hello_log p{line-height: 18px;}
+        .btn{
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.428571429;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            color:#fff;
+        }
+        .btn:hover{
+            background-color: #47a447;
+            border-color: #398439;
+        }
+
+        .modern-loading {
+          position: absolute;
+          z-index: 10000;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          overflow: hidden;
+          background: #94c849;
+        }
+        .modern-loading-dot {
+          position: absolute;
+          top: 0;
+          right: 100%;
+          width: 5px;
+          height: 5px;
+          background: #FFFFFF;
+          transition-property: right;
+          transition-timing-function: ease-out;
+          -webkit-transition-property: right;
+          -webkit-transition-timing-function: ease-out;
+        }
+        .modern-loading-ani {
+          right: 0;
+        }
+        </style>
+    </head>
+    <body>
+
+        <div class="hello">
+            <div class="hello_inner">
+                <h1>jquery.modernloading.js</h1>
+            </div>
+            <div class="hello_act">
+                <button class="btn" id="btnToggle">Toggle Start&Stop</button>
+            </div>
+            <div id="log" class="hello_log">
+                
+            </div>
+        </div>
+
+        <div id="test" class="modern-loading"></div>
+
+        <script src="http://oxox.io/assets/js/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="jquery.modernloading.js"></script>
+        <script>
+        var $test = $('#test').modernloading(),
+            isRunning = true,
+            $log = $('#log');
+        $('#btnToggle').on('click',function(e){
+            $test.modernloading(isRunning?'stop':'start');
+            isRunning = !isRunning;
+            $log.append('<p>modernloading has been '+(isRunning?'start':'stop')+'ed!</p>');
+            return false;
+        });
+        </script>
+    </body>
+</html>
+
